@@ -2,7 +2,6 @@ from flask import Flask, request, render_template, redirect, url_for
 import pickle
 import subprocess
 import mysql.connector
-import os
 headers = {"Authorization": "Bearer ya29.a0ARrdaM_YkI6oUm949UJteFylUpoLGG114jpBLlEiTSJZkfPSqwPaUcWmJKHRN9aPNBpOZoXdbCjC5BRezFaooZSVvfFqMyKkbmb_ZuuxrzkARnNJh06-Dm-xvq4FVlpmnoBm1IF2n4seBnhRjV79Si4XmNS7"}
 
 model_path = 'saved_models/model.pkl'
