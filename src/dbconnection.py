@@ -106,7 +106,7 @@ def main():
 
         # Insert data into both tables
         insert_data(connection, matched_transactions_path, "Suspicious", suspicious_columns)
-        insert_data(connection, filtered_data_path, "filteredTransactions", filtered_columns)
+        # insert_data(connection, filtered_data_path, "filteredTransactions", filtered_columns)
 
         connection.close()
 
