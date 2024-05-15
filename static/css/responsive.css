@@ -1,0 +1,211 @@
+/*
+    template name:{{dataments}}
+    template url:{{https://www.designtocodes.com/product/dataments-free-bootstrap-admin-dashboard-template/}}
+    description:{{unveiling the dataments free bootstrap admin dashboard template, your ultimate solution to a seamless web management experience! this is more than just a template; it's your partner in crafting a digital masterpiece.}}
+    author: designtocodes 
+    author url: https://www.designtocodes.com 
+    text domain:{{dataments}}
+*/
+
+@media only screen and (min-width: 0px) and (max-width: 575px) {
+
+    /* breadcrumbs page */
+    .d2c_solid_1 .breadcrumb-item, .d2c_solid_2 .breadcrumb-item{
+        padding: 0.375rem 0.75rem;
+        margin-left: 0.188rem;
+    }
+
+    /* ========== timeline page ========== */
+    .d2c_timeline_content{
+        width: 100%;
+        margin-bottom: 1.25rem;
+    }
+    .d2c_timeline_upper {
+        margin-bottom: 0rem;
+    }
+    .d2c_timeline_upper .d2c_timeline_content::before,
+    .d2c_timeline_content::before,
+    .d2c_timeline_upper .d2c_timeline_content:last-child::after,
+    .d2c_timeline_upper:before,
+    .d2c_timeline_wrapper .d2c_timeline_content::after {
+        display: none !important;
+    }
+
+    .d2c_timeline_one_content .d2c_card_wrapper {
+        padding: 1.25rem 0rem 1.25rem 0rem !important;
+    }
+    .d2c_timeline_one_content .d2c_years {
+        position: unset;
+        margin-bottom: 0.313rem;
+    }
+    .d2c_timeline_one_content:first-child::after, .d2c_timeline_one_content:nth-child(3)::after{
+        display: none;
+    }
+
+    /* ========== pagination page ========== */
+    .page-link{
+        padding: 0.125rem 0.625rem;
+    }
+
+    /* ========== card page ========== */
+    .d2c_horizontal_1 .card-img-top {
+        border-radius: 1.25rem;
+        height: 18.75rem !important;
+        object-fit: cover;
+    }
+    /* ========== login system(sign in,sign up,forget,lock screen) page ========== */
+    .d2c_sign_up{
+        height: auto;
+        padding: 3.75rem 0rem;
+    }
+    .d2c_login_wrapper{
+        padding: 2.188rem 1.25rem;
+    }
+
+    /* ========== error page ========== */
+    .d2c_error_title{
+        font-size: 6.25rem;
+        line-height: 8.25rem;
+    }
+    .d2c_error_subtitle{
+        font-size: 1.75rem;
+    }
+    .d2c_error_description {
+        margin-bottom: 1.25rem;
+    }
+    /* ========== faq page ========== */
+    .d2c_faq_main{
+        padding: 3.75rem 1.5rem 5.625rem 1.5rem;
+    }
+    .accordion-button{
+        font-size: 1rem;
+        padding: 0.75rem 2.5rem 0.75rem 0.75rem;
+    }
+    .accordion-body{
+        padding: 0.75rem;
+    }
+    /* ========== documentation page ========== */
+    .d2c_support_left{
+        border-right: 0rem;
+    }
+
+    /* ========= Email ========== */
+    .d2c_mail_tab .border-last {
+        border-right: none;
+    }
+
+    /* ========= Chat App ========== */
+    .chat-messages {
+        max-height: 28.5rem;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    /* ========== timeline page ========== */
+    .d2c_timeline_content{
+        width: 100%;
+        margin-bottom: 1.25rem;
+    }
+    .d2c_timeline_upper {
+        margin-bottom: 0rem;
+    }
+    .d2c_timeline_upper .d2c_timeline_content::before,
+    .d2c_timeline_content::before,
+    .d2c_timeline_upper .d2c_timeline_content:last-child::after,
+    .d2c_timeline_upper:before,
+    .d2c_timeline_wrapper .d2c_timeline_content::after {
+        display: none !important;
+    }
+
+    .d2c_timeline_one_content .d2c_card_wrapper {
+        padding: 1.25rem 0rem 1.25rem 0rem !important;
+    }
+    .d2c_timeline_one_content .d2c_years {
+        position: unset;
+        margin-bottom: 0.313rem;
+    }
+    .d2c_timeline_one_content:first-child::after, .d2c_timeline_one_content:nth-child(3)::after{
+        display: none;
+    }
+    /* ========== card page ========== */
+    .d2c_horizontal_1 .card-img-top,.d2c_horizontal_card_2 .card-img-top {
+        border-radius: 1.25rem;
+        height: 18.75rem !important;
+        object-fit: cover;
+    }
+    /* ========== login system(sign in,sign up,forget,lock screen) page ========== */
+    .d2c_sign_up{
+        height: auto;
+        padding: 3.75rem 0rem;
+    }
+    /* ========== error page ========== */
+    .d2c_error_title{
+        font-size: 6.25rem;
+        line-height: 8.25rem;
+    }
+    .d2c_error_subtitle{
+        font-size: 1.75rem;
+    }
+    .d2c_error_description {
+        margin-bottom: 1.25rem;
+    }
+    /* ========== faq page ========== */
+    .d2c_faq_main{
+        padding: 3.75rem 1.5rem 5.625rem 1.5rem;
+    }
+    /* ========== documentation page ========== */
+    .d2c_support_left{
+        border-right: 0rem;
+    }
+     /* ========= Email ========== */
+    .d2c_mail_tab .border-last {
+        border-right: none;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* ========== Timeline page ========== */
+    .d2c_timeline_content{
+        width: 32%;
+    }
+    .d2c_timeline_one_content .d2c_card_wrapper {
+        padding: 1.25rem;
+    }
+    .d2c_timeline_upper:before{
+        width: 68%;
+    }
+    /* ========== error page ========== */
+    .d2c_error_title{
+        font-size: 7rem;
+    }
+    /* ========== faq page ========== */
+    .d2c_faq_main{
+    padding: 3.75rem 1.5rem 5.625rem 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    /* ========== Timeline page ========== */
+    .d2c_timeline_content{
+        width: 30%;
+    }
+    .d2c_timeline_one_content .d2c_card_wrapper {
+        padding: 1.25rem;
+    }
+    .d2c_timeline_upper:before{
+        width: 70%;
+    }
+    /* ========== error page ========== */
+    .d2c_error_title{
+        font-size: 8rem;
+    }
+    /* ========== faq page ========== */
+    .d2c_faq_main{
+        padding: 3.75rem 1.5rem 5.625rem 1.5rem;
+    }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1450px) {
+    .d2c_mail_tab .nav .nav-link{
+        font-size: 14px !important;
+    }
+}

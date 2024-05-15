@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo/logo-sm.png') }}" type="image/gif" sizes="16x16">
+    <title>Log In</title>
+    <meta name="og:description" content="unveiling the dataments free bootstrap admin dashboard template, your ultimate solution to a seamless web management experience! this is more than just a template; it's your partner in crafting a digital masterpiece.">
+    <meta name="robots" content="index, follow">
+    <meta name="og:title" property="og:title" content="dataments - free bootstrap admin dashboard template">
+    <meta property="og:image" content="#">
+   <!-- Bootstrap CSS link -->
+<link rel="stylesheet" href="{{ url_for('static', filename='lib/bootstrap_5/bootstrap.min.css') }}">
+
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- Main CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+</head>
+
+<body>
+
+    <section class="d2c_login_system d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                    <div class="d2c_login_wrapper bg-white">
+                        <div class="text-center mb-4">
+                            <h4 class="text-secondary text-capitalize">Sign In your account</h4>
+                            <p class="text-muted">Don't have an account? <a href="/signuppage"
+                                    class="text-capitalize text-primary text-decoration-none d2c_link">Sing up here</a>
+                            </p>
+                        </div>
+                        <form action="/login" method="POST">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your mail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password:</label>
+                                    <input type="text" class="form-control border-end-0"  id="password" name="password" 
+                                        placeholder="8+ character required" aria-describedby="button-addon2">
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary rounded-pill w-100 text-capitalize">Create
+                                    an account</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Initial JavaScript -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="{{ url_for('static', filename='lib/bootstrap_5/bootstrap.bundle.min.js') }}"></script>
+
+<!-- Custom JavaScript -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
