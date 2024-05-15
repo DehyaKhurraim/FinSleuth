@@ -1,40 +1,17 @@
 import mysql.connector
 import pandas as pd
 
-# Connect to MySQL
-def connect_to_mysql():
-    try:
-        connection = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="12345"
-        )
-        print("Connected to MySQL successfully")
-        return connection
-    except mysql.connector.Error as err:
-        print(f"Error: {err}")
-        return None
-
-# Create the database if it doesn't exist
-def create_database(connection, database_name):
-    try:
-        cursor = connection.cursor()
-        cursor.execute(f"CREATE DATABASE IF NOT EXISTS {database_name}")
-        print(f"Database '{database_name}' created successfully")
-        cursor.close()
-    except mysql.connector.Error as err:
-        print(f"Error: {err}")
-
 # Connect to the database
-def connect_to_database(database_name):
+def connect_to_database():
     try:
         connection = mysql.connector.connect(
-            host="localhost",
+            host="viaduct.proxy.rlwy.net",
             user="root",
-            password="12345",
-            database=database_name
+            password="bDgjXpCXhsPUXzTzJKhEDBbtafoDkjtV",
+            port=50270,
+            database="railway"
         )
-        print(f"Connected to database '{database_name}' successfully")
+        print(f"Connected to database railway successfully")
         return connection
     except mysql.connector.Error as err:
         print(f"Error: {err}")
@@ -59,7 +36,6 @@ def insert_data(connection, file_path, table_name, columns_to_insert):
 
         # Check if the specified columns exist in the CSV file
         csv_columns = set(df.columns)
-        print(f"CSV columns: {csv_columns}")
         if not set(columns_to_insert).issubset(csv_columns):
             print(f"Columns specified for insertion not found in CSV file: {file_path}")
             print(f"Missing columns: {set(columns_to_insert) - csv_columns}")
@@ -84,16 +60,11 @@ def insert_data(connection, file_path, table_name, columns_to_insert):
 
 # Main function
 def main():
-    database_name = "FYP_AML"
+    database_name = "railway"
     matched_transactions_path = "reports/matched_transactions.csv"
     filtered_data_path = "data_processed/filtered_data_2.csv"
 
-    connection = connect_to_mysql()
-    if connection:
-        create_database(connection, database_name)
-        connection.close()
-
-    connection = connect_to_database(database_name)
+    connection = connect_to_database()
     if connection:
         table_definitions = {
             "Suspicious": """
@@ -111,14 +82,11 @@ def main():
             """,
             "filteredTransactions": """
                 CREATE TABLE IF NOT EXISTS filteredTransactions (
-                  
                     amount FLOAT,
                     nameOrig VARCHAR(255),
                     oldbalanceOrg FLOAT,
-                  
                     nameDest VARCHAR(255),
                     oldbalanceDest FLOAT,
-                  
                     isFraud INT
                 )
             """

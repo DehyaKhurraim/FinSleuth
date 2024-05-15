@@ -10,13 +10,13 @@ model = pickle.load(open(model_path, 'rb'))
 app = Flask(__name__)
 execution_complete = False
 
-
-# AML configuration
+# Database configuration for Railway live database
 db_config = {
-    'host': 'localhost',
+    'host': 'viaduct.proxy.rlwy.net',
     'user': 'root',
-    'password': '12345',
-    'database': 'FYP_AML'
+    'password': 'bDgjXpCXhsPUXzTzJKhEDBbtafoDkjtV',
+    'port': 50270,
+    'database': 'railway'
 }
 
 # Establishing connection to the database
