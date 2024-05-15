@@ -42,8 +42,8 @@ except mysql.connector.Error as e:
 
 @app.route("/", methods=['GET'])
 def signin_page():
-    # return render_template('signin.html')
-    return render_template('index.html')
+    return render_template('signin.html')
+    # return render_template('index.html')
 
 @app.route("/login", methods=['POST'])
 def signin():

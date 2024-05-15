@@ -7,4 +7,3 @@ catboost
 requests
 mlxtend
 mysql-connector-python
-tk
