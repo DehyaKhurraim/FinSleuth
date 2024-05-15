@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import numpy as np
 import csv
@@ -33,10 +34,10 @@ else:
 
 # data_path = "data/data.csv"
 
-logging.basicConfig(filename='C:\\New folder\\aml-repo\\logs\\model_development.txt',
-					filemode='a',
-					format='%(asctime)s %(message)s',
-					datefmt="%Y-%m-%d %H:%M:%S")
+logging.basicConfig(filename='logs/model_development.txt',
+                    filemode='a',
+                    format='%(asctime)s %(message)s',
+                    datefmt="%Y-%m-%d %H:%M:%S")
 
 logging.warning("DATA PREPROCESSING 1 STAGE")
 
@@ -101,7 +102,7 @@ logging.warning("Filtering Done")
 
 logging.warning("Storing Filtered Data in data_processed folder...")
 
-with open("C:\\New folder\\aml-repo\\data_processed/filtered_data.csv", "w") as f:
+with open("data_processed/filtered_data.csv", "w") as f:
     writer = csv.writer(f)
     writer.writerows(csv_golden_data)
 

@@ -1,12 +1,14 @@
+import os
 import pandas
 import logging
 
-data_path = "C:\\New folder\\aml-repo\\data_processed/filtered_data_2.csv"
+data_path = "data_processed/filtered_data_2.csv"
 
-logging.basicConfig(filename='C:\\New folder\\aml-repo\\logs\\model_development.txt',
-					filemode='a',
-					format='%(asctime)s %(message)s',
-					datefmt="%Y-%m-%d %H:%M:%S")
+log_file_path = os.path.join(os.getcwd(), 'logs', 'model_development.txt')
+logging.basicConfig(filename='logs/model_development.txt',
+                    filemode='a',
+                    format='%(asctime)s %(message)s',
+                    datefmt="%Y-%m-%d %H:%M:%S")
 
 logging.warning("----------")
 logging.warning("DATA PREPROCESSING 3 STAGE")
@@ -326,7 +328,7 @@ logging.warning("Creating New Features Done")
 logging.warning("Storing Data in Data_processed Folder...")
 
 data_secondary = pandas.DataFrame(csv_dataset_secondary, columns=columns)
-data_secondary.to_csv('C:\\New folder\\aml-repo\\data_processed/filtered_data_3.csv')
+data_secondary.to_csv('data_processed/filtered_data_3.csv')
 
 logging.warning("Storing Data Done")
 

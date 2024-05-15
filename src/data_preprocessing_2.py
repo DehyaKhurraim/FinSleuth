@@ -1,13 +1,14 @@
+import os
 import pandas
 import logging
 from random import randint
 
-data_path = "C:\\New folder\\aml-repo\\data_processed/filtered_data.csv"
+data_path = "data_processed/filtered_data.csv"
 
-logging.basicConfig(filename='C:\\New folder\\aml-repo\\logs\\model_development.txt',
-					filemode='a',
-					format='%(asctime)s %(message)s',
-					datefmt="%Y-%m-%d %H:%M:%S")
+logging.basicConfig(filename='logs/model_development.txt',
+                    filemode='a',
+                    format='%(asctime)s %(message)s',
+                    datefmt="%Y-%m-%d %H:%M:%S")
 
 logging.warning("----------")
 logging.warning("DATA PREPROCESSING 2 STAGE")
@@ -67,7 +68,7 @@ columns=['step','trans_type','amount','nameOrig','oldbalanceOrg',
 
 data_primary = pandas.DataFrame(csv_dataset_primary, columns=columns)
 
-data_primary.to_csv('C:/New folder/aml-repo/data_processed/filtered_data_2.csv', index=False)
+data_primary.to_csv('data_processed/filtered_data_2.csv', index=False)
 
 logging.warning("Storing Data Done")
 

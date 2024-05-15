@@ -32,8 +32,8 @@ def save_rules(rules, output_path):
     rules.to_csv(output_path, index=False)
 
 def rule_mining_main():
-    data_path = "C:\\New folder\\aml-repo\\data_processed\\filtered_data_3.csv"
-    output_path = "C:\\New folder\\aml-repo\\reports\\association_rules.csv"
+    data_path = "data_processed/filtered_data_3.csv"
+    output_path = "reports/association_rules.csv"
     num_processes = 4  # Adjust the number of processes as needed
     chunk_size = 1000  # Define your desired chunk size
 
@@ -61,7 +61,7 @@ def rule_mining_main():
     logging.warning("Saving Rules Done")
 
 if __name__ == "__main__":
-    logging.basicConfig(filename='C:\\New folder\\aml-repo\\logs\\model_development.txt',
+    logging.basicConfig(filename='logs/model_development.txt',
                         filemode='a',
                         format='%(asctime)s %(message)s',
                         datefmt="%Y-%m-%d %H:%M:%S")
