@@ -1,13 +1,7 @@
-import numpy as np
 import pandas as pd
-import pickle
-import json
-from datetime import datetime
 import logging
-from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 # from xgboost import XGBClassifier
-from sklearn.metrics import confusion_matrix, f1_score, recall_score, precision_score
 
 logging.basicConfig(filename='logs/model_development.txt',
                     filemode='a',

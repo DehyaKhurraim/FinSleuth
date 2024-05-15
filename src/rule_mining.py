@@ -2,7 +2,6 @@ import pandas as pd
 from mlxtend.preprocessing import TransactionEncoder
 from mlxtend.frequent_patterns import fpgrowth, association_rules
 from multiprocessing import Pool
-import numpy as np
 import logging
 
 def read_data(file_path):

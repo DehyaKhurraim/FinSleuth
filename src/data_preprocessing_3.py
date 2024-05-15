@@ -1,9 +1,5 @@
 import pandas
-import json
-import numpy as np
-import csv
 import logging
-from random import randint
 
 data_path = "C:\\New folder\\aml-repo\\data_processed/filtered_data_2.csv"
 
