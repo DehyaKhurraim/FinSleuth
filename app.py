@@ -118,24 +118,24 @@ def run_files():
     try:
         # List of file names to run
         file_names = [
-            '/data_preprocessing_1.py',
-            '/data_preprocessing_2.py',
-            '/data_preprocessing_3.py',
-            '/rule_mining.py',
-            '/feature_selection.py',
-             '/model_creation.py',
-             '/dbconnection.py'
+            'data_preprocessing_1.py',
+            'data_preprocessing_2.py',
+            'data_preprocessing_3.py',
+            'rule_mining.py',
+            'feature_selection.py',
+             'model_creation.py',
+             'dbconnection.py'
         ]
         
         # Path to the src directory
-        src_directory = 'C:/New folder/aml-repo/src'
+        src_directory = os.path.join(os.getcwd(), 'src')
 
         # List to store executed file names
         executed_files = []
 
         # Loop through each file and execute it
         for file_name in file_names:
-            file_path = src_directory + file_name
+            file_path = os.path.join(src_directory, file_name)
             subprocess.run(['python', file_path], check=True)
             executed_files.append(file_name)  # Append the executed file name
         
