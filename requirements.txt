@@ -8,6 +8,3 @@ requests
 mlxtend
 mysql-connector-python
 tk
-pickle
-subprocess
-os
