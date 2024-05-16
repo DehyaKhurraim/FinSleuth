@@ -117,7 +117,7 @@ def run_files():
     try:
         # List of file names to run
         file_names = [
-            '/data_preprocessing_1.py',
+            # '/data_preprocessing_1.py',
             '/data_preprocessing_2.py',
             '/data_preprocessing_3.py',
             '/rule_mining.py',
