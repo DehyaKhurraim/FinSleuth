@@ -122,7 +122,7 @@ def run_files():
             '/data_preprocessing_3.py',
             '/rule_mining.py',
             '/feature_selection.py',
-             '/model_creation.py',
+            #  '/model_creation.py',
              '/dbconnection.py'
         ]
         
