@@ -1,12 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{{ url_for('static', filename='images/logo/logo-sm.png') }}" type="image/gif">
-    <title>Dashboard</title>
+    <title>Add Data</title>
     <meta name="og:description" content="unveiling the dataments free bootstrap admin dashboard template, your ultimate solution to a seamless web management experience! this is more than just a template; it's your partner in crafting a digital masterpiece.">
     <meta name="robots" content="index, follow">
     <meta name="og:title" property="og:title" content="dataments - free bootstrap admin dashboard template">
@@ -18,28 +17,32 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
 
 <style>
-
-    .iframe-container {
-        position: relative;
-        width: 100%;
-        padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625, then multiply by 100 to get percentage) */
-        height: 0;
-    }
-    
-    .iframe-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
-    
-</style>
+		.res-container{}
+		.result-box{width:80%;margin-left:auto;margin-right:auto;height: 260px;padding:10px;overflow-y: auto;}
+		.loader {
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #3498db;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto; /* Adjust margin as needed */
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+		#datafetch_form{padding:0px 40px;}
+		.json-result{}
+		.result-box p{text-align:left;}
+	</style>
 </head>
 
 <body>
-    <div class="d2c_wrapper">
+	
+	<div class="d2c_wrapper">
         <div class="d2c_sidebar d2c_home rounded-4 px-4 py-4 py-md-4 m-4 me-0" id="sidebar">
             <div class="d-flex flex-column h-100">
                 <hr class="divider">
@@ -69,111 +72,186 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <ul class="navbar-nav align-items-center mb-lg-0 ms-auto">
-					<a class="nav-link" href="/adddata">
-						<i class="fas fa-layer-group me-2"></i>
-						<span>Add Transaction</span>
+					<a class="nav-link" href="/index">
+						<i class="fas fa-home me-2"></i>
+						<span>Dashboard</span>
 					</a>
             </nav>
 
+            <!-- Body: Body -->
             <div class="body">
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="mb-0 text-capitalize text-center">Dashboard</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="iframe-container">
-                                    <iframe title="FYPBI" src="https://app.powerbi.com/reportEmbed?reportId=c69a1ace-9726-4b5a-b0f7-a66259a5445a&autoAuth=true&ctid=c4aa19c0-1ea6-470e-a8db-58934d49c0a9" frameborder="0" allowFullScreen="true"></iframe>
-                                </div>                          
-                              </div>
+<!-- Testimonials -->
+<section class="testimonials text-center">
+    <div class="container-fluid">
+        <h4 class="my-4 title">Money Laundering Detection</h4>
+        <!-- Centered container -->
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="col-md-6 col-xs-12">
+                <!-- Results box -->
+                <div class="result-box shadow rounded-lg">
+                    <h6 class="title">Results</h6>
+                    <div class="json-result">
+                        {% if name %}
+                            {% for item in name %}
+                                <p>successfully compiled and executed {{ item }}</p>
+                            {% endfor %}
+                        {% else %}
+                        <div id="loading" style="display: none;">
+                            <!-- Loader animation -->
+                            <div class="loader"></div>
                         </div>
-
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="mb-0 text-capitalize">Suspicious Transactions</h5>
-                            </div>
-                            <div class="d2c_dataTable table-responsive">
-                                <table id="table_id_2" class="display nowrap w-100">
-                                    <thead>
-                                        <tr>
-                                            <th>Type</th>
-                                            <th>Amount</th>
-                                            <th>Name Orig</th>
-                                            <th>Old Balance Orig</th>
-                                            <th>New Balance Orig</th>   
-                                            <th>Name Dest</th>
-                                            <th>Old Balance Dest</th>
-                                            <th>New Balance Dest</th> 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for row in suspicious_data %}
-                                        <tr>
-                                            <td>{{ row[0] }}</td>
-                                            <td>{{ row[1] }}</td>
-                                            <td>{{ row[2] }}</td>
-                                            <td>{{ row[3] }}</td>
-                                            <td>{{ row[4] }}</td>
-                                            <td>{{ row[5] }}</td>
-                                            <td>{{ row[6] }}</td>
-                                            <td>{{ row[7] }}</td>
-                                        </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                        {% endif %}
                     </div>
+                    
                 </div>
+                <!-- Run button -->
+                <form action="/run_files" method="post">
+                    <input class="form-control btn-primary mt-4" type="submit" value="Run Files" onclick="showLoading()">
+                </form>
             </div>
-
         </div>
     </div>
+</section>
 
+            </div>
+            <!-- Main Content -->
 
-<!-- Initial JavaScript -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="{{ url_for('static', filename='lib/bootstrap_5/bootstrap.bundle.min.js') }}"></script>
+        </div><!-- Page Content  -->
+    </div>
 
-<!-- Datatable JS links -->
-<script src="{{ url_for('static', filename='lib/DataTables/datatables.min.js') }}"></script>
-<script src="{{ url_for('static', filename='lib/DataTables/dataTables.buttons.min.js') }}"></script>
-<script src="{{ url_for('static', filename='lib/DataTables/jszip.min.js') }}"></script>
-<script src="{{ url_for('static', filename='lib/DataTables/pdfmake.min.js') }}"></script>
-<script src="{{ url_for('static', filename='lib/DataTables/vfs_fonts.js') }}"></script>
-<script src="{{ url_for('static', filename='lib/DataTables/buttons.html5.min.js') }}"></script>
-<script src="{{ url_for('static', filename='lib/DataTables/buttons.print.min.js') }}"></script>
-<script src="{{ url_for('static', filename='lib/DataTables/colVis.min.js') }}"></script>
+<!-- Modal -->
+<div class="modal" tabindex="-1" role="dialog" id="completionModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Execution Completed</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Your work has been successfully completed.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-
-<!-- Custom JavaScript -->
-<script src="{{ url_for('static', filename='js/main.js') }}"></script>
-
-<!-- ApexCharts library -->
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
-<!-- Dashboard chart JavaScript -->
-<script src="{{ url_for('static', filename='js/dashboard_chart.js') }}"></script>
+<!-- Loader -->
+<div id="loading" style="display: none;">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
 
 <script>
-	$(document).ready(function () {
-		$('#table_id_2').DataTable({
-			dom: "<'row align-items-center'<'col-sm-12 col-md-6 px-3 text-center text-md-start'B><'col-sm-12 col-md-6 px-3'f>>" +
-				"<'row'<'col-sm-12'tr>>" +
-				"<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-			buttons: [
-				{ extend: 'copy', className: 'btn btn-primary' },
-				{ extend: 'csv', className: 'btn btn-secondary' },
-				{ extend: 'excel', className: 'btn btn-success' },
-				{ extend: 'pdf', className: 'btn btn-warning' },
-				{ extend: 'print', className: 'btn btn-danger' }
-			]
-		});
-	});
+    function showLoading() {
+        document.getElementById("loading").style.display = "block";
+    }
+    function displayMessage(message) {
+        // Create a new paragraph element
+        var para = document.createElement("p");
+        // Set the text content of the paragraph to the message
+        para.textContent = message;
+        // Append the paragraph to the json-result div
+        document.getElementById("json-result").appendChild(para);
+    }
 
+    // Function to fetch execution status and display messages dynamically
+    function checkExecutionStatus() {
+        fetch('/execution_status')
+            .then(response => response.json())
+            .then(data => {
+                if (data.execution_complete) {
+                    $('#completionModal').modal('show');
+                } else {
+                    // Continue polling or do something else
+                    setTimeout(checkExecutionStatus, 1000); // Check again after 1 second
+                }
+                // Display messages dynamically
+                if (data.messages) {
+                    data.messages.forEach(message => {
+                        displayMessage(message);
+                    });
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    // Start checking the execution status when the document is ready
+    $(document).ready(function() {
+        checkExecutionStatus();
+    });
+</script>
+
+
+<script>
+    function checkExecutionStatus() {
+        fetch('/execution_status')
+            .then(response => response.json())
+            .then(data => {
+                if (data.execution_complete) {
+                    $('#completionModal').modal('show');
+                } else {
+                    // Continue polling or do something else
+                    setTimeout(checkExecutionStatus, 1000); // Check again after 1 second
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    // Start checking the execution status when the document is ready
+    $(document).ready(function() {
+        checkExecutionStatus();
+    });
+</script>
+
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+<script>
+	function fun1() {
+		document.getElementById("spin").style.color = "white";
+		console.log("hello");
+		
+	}
 </script>
 
 </body>
